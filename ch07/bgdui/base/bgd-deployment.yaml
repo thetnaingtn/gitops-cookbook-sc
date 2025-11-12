@@ -18,11 +18,14 @@ spec:
       labels:
         app: bgd
     spec:
+      imagePullSecrets:
+        - name: github-packages-secret
       containers:
-      - image: quay.io/rhdevelopers/bgd:1.0.0
-        name: bgd
-        env:
-        - name: COLOR
-          value: "blue"
-        resources: {}
+        - image: docker pull ghcr.io/thetnaingtn/grpc-course/hello-server:v0.1.0
+          name: bgd
+          env:
+            - name: COLOR
+              value: "blue"
+          resources: {}
 ---
+
